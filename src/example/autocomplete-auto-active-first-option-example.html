@@ -1,0 +1,23 @@
+<div class="container">
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      placeholder="Start typing..."
+      aria-label="Email"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+      #input
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      @for (option of filteredOptions | async; track option) {
+      <mat-option [value]="option" [innerHTML]="option | highlight:input.value">
+      </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+</div>
